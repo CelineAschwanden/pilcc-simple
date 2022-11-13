@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
+  <title>Pilcc</title>
+</head>
+<body class="text-white bg-slate-900 h-full font-mono p-6">
+  <div class="flex justify-center mt-6">
+    <button id="" class="bg-slate-700 hover:bg-slate-600 relative mr-6 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-md 
+    text-white font-semibold h-10 px-6 rounded-lg flex items-center pointer-events-auto">
+    Create clip
+    </button>
+    <select id="" class="rounded-lg px-2 text-sm text-white bg-zinc-700 hover:bg-zinc-600">
+        <option value="0">Destroy when viewed</option>
+        <option value="1">Destroy in 1 minute</option>
+        <option value="2">Destroy in 10 minutes</option>
+        <option value="3">Destroy in 1 day</option>
+        <option value="4">Destroy in 1 week</option>
+    </select>
+  </div>
+
+  <div class="flex flex-col items-center h-4/5 mt-8" id="home-content">
+    <textarea id="" class="w-full bg-slate-700 text-white p-5 h-4/5 rounded-md"></textarea>
+  </div>
+</body>
+<script src="create-clip.js"></script>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "pilcc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "nodemon --watch public index.js -e html,js,css"
+  },
+  "author": "Cili",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-appwrite": "^8.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "tailwindcss": "^3.2.4"
+  }
+}
