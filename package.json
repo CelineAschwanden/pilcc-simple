@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "nodemon --watch public index.js -e html,js,css"
+    "test": "nodemon --watch public index.js -e html,js,css",
+    "style": "npx tailwindcss -i ./src/style.css -o ./public/style.css --watch"
   },
   "author": "Cili",
   "license": "ISC",
   "dependencies": {
+    "appwrite": "^10.1.0",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "node-appwrite": "^8.1.0"
   },
