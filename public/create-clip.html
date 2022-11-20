@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
   <title>Pilcc</title>
 </head>
 <body class="text-white bg-slate-900 h-full font-mono p-6">
@@ -14,7 +15,7 @@
       text-white font-semibold p-3 rounded-lg flex items-center pointer-events-auto">
       Create clip
       </button>
-      <select id="clip-lifetime" role="button" class="block rounded-lg p-3 text-sm text-white bg-zinc-700 hover:bg-zinc-600">
+      <select id="clip-lifetime" role="button" class="block rounded-lg p-3 text-sm text-white bg-cyan-900 hover:bg-cyan-800">
           <option value="viewed">Destroy when viewed</option>
           <option value="oneMinute">Destroy in 1 minute</option>
           <option value="tenMinutes">Destroy in 10 minutes</option>
@@ -35,11 +36,11 @@
   </div>
 
   <!-- Success message -->
-  <div id="clip-success" class="h-full">
-    <div class="flex justify-center mt-12">
+  <div id="clip-success" class="h-full hidden">
+    <div class="flex flex-col items-center mt-12">
       <h2 class="text-xl text-green-500">The clip has been created</h2>
       <p class="mt-8 text-white">Enter the current URL anywhere else to get your stuff.</p>
-      <p id="current-url"></p>
+      <div id="clip-qrcode" class="mt-8 border-white border-8"></div>
     </div>
   </div>
 </body>
