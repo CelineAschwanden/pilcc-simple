@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const { Client, Databases, ID } = require('node-appwrite');
+const { Client, Databases, Query, ID } = require('node-appwrite');
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -18,6 +18,7 @@ const appwrite = new Client()
 const db = new Databases(appwrite);
 
 //Express settings
+app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use(express.json({limit: '5mb'}));
@@ -27,13 +28,24 @@ app.get('/', (req,res) => {
     res.sendFile(`${__dirname}/public/index.html`);
 });
 
-app.get('/:id', (req,res) => {
+app.get('/:id(*)', (req,res) => {
     const id = req.params.id;
-    //check in database for this id
-    res.sendFile(`${__dirname}/public/create-clip.html`);
+    db.listDocuments(databaseID, clipCollectionID, [Query.equal('ID', id)]).then((clips) => {
+        const clip = clips.documents[0];
+        if (clip && clip.total != 0) {
+            res.render('get-clip', { clipContent: clip.content });
+            if (clips.documents[0].lifetime == 'viewed')
+                db.deleteDocument(databaseID, clipCollectionID, clip.$id);
+        }
+        else
+            res.sendFile(`${__dirname}/public/create-clip.html`);
+    }).catch((e) => {
+        console.log(e);
+        res.send();
+    });
 });
 
-app.post('/:id', (req,res) => {
+app.post('/:id(*)', (req,res) => {
     const id = req.params.id;
     const content = req.body.content;
     const lifetime = req.body.lifetime;

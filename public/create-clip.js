@@ -18,7 +18,7 @@ function createClip() {
         if (xhr.readyState === 4 && xhr.status === 200) { //OK
             document.getElementById('clip-form').style.display = 'none';
             document.getElementById('clip-success').style.display = 'block';
-            const qrcode = new QRCode(document.getElementById('clip-qrcode'), {
+            new QRCode(document.getElementById('clip-qrcode'), {
                 text: currentUrl,
                 width: 150,
                 height: 150,

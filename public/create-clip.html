@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    //Set base href to root, in case the selected route includes slashes
+    var base = document.createElement('base');
+    base.href = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+    document.getElementsByTagName('head')[0].appendChild(base);
+  </script>
   <link href="style.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
   <title>Pilcc</title>
