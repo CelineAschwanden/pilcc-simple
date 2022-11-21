@@ -22,28 +22,26 @@ module.exports = async function (req, res) {
 
   database.listDocuments(clipDatabase, clipsCollection).then((clips) => {
     let deletedClips = 0;
-    clips.documents.forEach((clip) => {
-      if (!clip && clip.total == 0)
+    Promise.all(clips.documents.map(async (clip) => {
+      if (!clip || clip == undefined)
         return;
       switch (clip.lifetime) {
         case 'oneMinute': 
-          if (Date.parse(clip.$createdAt) + 60000 < Date.now())
-            return;
+          if (Date.parse(clip.$createdAt) + 60000 > Date.now())
+            return; else break;
         case 'tenMinutes': 
-          if (Date.parse(clip.$createdAt) + 600000 < Date.now())
-            return;
+          if (Date.parse(clip.$createdAt) + 600000 > Date.now())
+            return; else break;
         case 'oneHour':
-          if (Date.parse(clip.$createdAt) + 3600000 < Date.now())
-            return;
+          if (Date.parse(clip.$createdAt) + 3600000 > Date.now())
+            return; else break;
         case 'oneDay':
-          if (Date.parse(clip.$createdAt) + 5184000000 < Date.now())
-            return;
+          if (Date.parse(clip.$createdAt) + 86400000 > Date.now())
+            return; else break;
       }
-      database.deleteDocument(clipDatabase, clipsCollection, clip.$id);
+      await database.deleteDocument(clipDatabase, clipsCollection, clip.$id);
       deletedClips = deletedClips + 1;
-    });
-
-    res.send(deletedClips + ' clips deleted');
+    })).then(() => res.send(deletedClips + ' clips deleted'));
   }).catch((e) => {
     res.send(e.message);
   });
