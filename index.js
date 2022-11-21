@@ -20,6 +20,7 @@ const db = new Databases(appwrite);
 //Express settings
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/favicon.ico', express.static(path.join(__dirname, 'public/assets/favicon.ico')));
 app.use(cors());
 app.use(express.json({limit: '5mb'}));
 app.use(express.urlencoded({ extended: false }))
