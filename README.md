@@ -2,5 +2,7 @@
 
 A simple but modern online-clipboard.
 
-Connected with an Appwrite backend on api.ciliscu.com
-for the temporary saving of clips.
+NodeJs Express server using the Node-Appwrite SDK.
+
+Clips are saved in an Appwrite Backend on app.ciliscu.com.
+A scheduled function takes care of expired clips.
