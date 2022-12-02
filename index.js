@@ -10,7 +10,7 @@ const clipCollectionID = '63774f1c6bb62419b7b3';
 
 //Create Appwrite client and get database service
 const appwrite = new Client()
-    .setEndpoint('https://api.ciliscu.com/v1')
+    .setEndpoint('https://app.ciliscu.com/v1')
     .setProject('6376b5ee8fce919da03f')
     .setKey('99fe1ee4fef4fc3f6bb4424e2dfcfd2d15de11b31084c507a9a6a06b4266882d0d550a2a0df8a7015a246a8eb1dcb3329dda' +
     '1e97b8928d2c1183baf4bbe1b6568573af10e0078fd687a6ddc1b995214534051b62bb04bf183e49e1590dd605ff5a5b027ef742c8a4' +
