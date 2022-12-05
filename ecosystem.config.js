@@ -14,7 +14,7 @@ module.exports = {
       host : '178.128.245.25',
       ref  : 'origin/master',
       repo : 'git@github.com:CelineAschwanden/pilcc.git',
-      path : '/var/www/Pilcc',
+      path : '/var/www/Pilcc/current',
       'post-setup': 'yarn install',
       'post-deploy' : 'pm2 reload ecosystem.config.js --env production'
     }
