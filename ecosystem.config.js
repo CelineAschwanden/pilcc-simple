@@ -2,6 +2,14 @@ module.exports = {
   apps : [{
     name: "Pilcc",
     script: './index.js',
+    env: {
+      NODE_ENV: "development",
+      PATH: process.env.PATH
+    },
+    env_production: {
+      NODE_ENV: "production",
+      PATH: process.env.PATH
+    }
   }],
 
   deploy : {
@@ -12,9 +20,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'git@github.com:CelineAschwanden/pilcc.git',
       path : '/root/pilcc',
-      'pre-deploy-local': '',
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production',
-      'pre-setup': ''
+      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     }
   }
 };

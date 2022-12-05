@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "test": "nodemon --watch public --watch views index.js -e html,js,css,ejs",
-    "style": "npx tailwindcss -i ./src/style.css -o ./public/style.css --watch"
+    "style": "npx tailwindcss -i ./src/style.css -o ./public/style.css --watch",
+    "deploy-prod": "pm2 deploy ecosystem.config.js production --force",
+    "reload-prod": "pm2 deploy ecosystem.config.js production exec 'pm2 reload Pilcc'"
   },
   "author": "Cili",
   "license": "ISC",
