@@ -10,12 +10,12 @@ jobs:
     - name: Check out repository code
       uses: actions/checkout@v3
     - name: Set up SSH
+      shell: bash
       run: |
         mkdir -p ~/.ssh/
-        echo "$SSH_PRIVATE_KEY" > ./gitub_action_key
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/gitub_action_key
         sudo chmod 600 ./gitub_action_key
         echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
-      shell: bash
       env:
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
         SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
