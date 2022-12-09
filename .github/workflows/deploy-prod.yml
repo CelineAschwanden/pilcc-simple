@@ -13,8 +13,8 @@ jobs:
       shell: bash
       run: |
         mkdir -p ~/.ssh/
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/gitub_action_key
-        sudo chmod 600 ~/.ssh/gitub_action_key
+        echo "$SSH_PRIVATE_KEY" > ./github_action_key
+        sudo chmod 600 ./github_action_key
         echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
       env:
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
