@@ -9,7 +9,7 @@ module.exports = {
 
   deploy : {
     production : {
-      key  : '../../.ssh/id_rsa',
+      key  : './github_action_key',
       user : 'root',
       host : '178.128.245.25',
       ref  : 'origin/master',
