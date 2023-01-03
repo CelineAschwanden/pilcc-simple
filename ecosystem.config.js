@@ -12,6 +12,7 @@ module.exports = {
       key  : './github_action_key',
       user : 'root',
       host : '178.128.245.25',
+      port : '33621',
       ref  : 'origin/master',
       repo : 'git@github.com:CelineAschwanden/pilcc.git',
       path : '/var/www/Pilcc',
