@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const { Client, Databases, Query, ID } = require('node-appwrite');
+require('dotenv').config();
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -40,7 +41,7 @@ app.get('/:id(*)', (req,res) => {
             res.sendFile(`${__dirname}/public/create-clip.html`);
     }).catch((e) => {
         console.log(e);
-        res.status(500).send('<p>An error occured. The page could not be loaded.</p>');
+        res.status(500).send('<p>An error occured. The page could not be loaded. ' + databaseID + ' </p>');
     });
 });
 
