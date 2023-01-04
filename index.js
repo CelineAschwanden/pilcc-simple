@@ -40,7 +40,7 @@ app.get('/:id(*)', (req,res) => {
             res.sendFile(`${__dirname}/public/create-clip.html`);
     }).catch((e) => {
         console.log(e);
-        res.send();
+        res.status(500).send('<p>An error occured. The page could not be loaded.</p>');
     });
 });
 
