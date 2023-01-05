@@ -41,7 +41,7 @@ app.get('/:id(*)', (req,res) => {
             res.sendFile(`${__dirname}/public/create-clip.html`);
     }).catch((e) => {
         console.log(e);
-        res.status(500).send('<p>An error occured. The page could not be loaded. ' + process.env.APPWRITE_ENDPOINT + ' </p>');
+        res.status(500).send('<p>An error occured. The page could not be loaded.</p>');
     });
 });
 
