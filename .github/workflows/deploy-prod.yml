@@ -32,4 +32,4 @@ jobs:
         echo PILCC_PROJECT_ID=${{secrets.PILCC_PROJECT_ID}} >> .env
         echo CLIP_DATABASE_ID=${{secrets.CLIP_DATABASE_ID}} >> .env
         echo CLIP_COLLECTION_ID=${{secrets.CLIP_COLLECTION_ID}} >> .env
-        scp -o StrictHostKeyChecking=no .env -P 33621 ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}}:/var/www/Pilcc/source
+        scp -P 33621 -o StrictHostKeyChecking=no .env ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}}:/var/www/Pilcc/source
