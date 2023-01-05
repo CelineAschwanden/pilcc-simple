@@ -1,8 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const { Client, Databases, Query, ID } = require('node-appwrite');
-require('dotenv').config();
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -11,7 +11,7 @@ const clipCollectionID = process.env.CLIP_COLLECTION_ID;
 
 //Create Appwrite client and get database service
 const appwrite = new Client()
-    .setEndpoint(process.env.APPWRITE_API_ENDPOINT)
+    .setEndpoint(process.env.APPWRITE_ENDPOINT)
     .setProject(process.env.PILCC_PROJECT_ID)
     .setKey(process.env.APPWRITE_API_KEY);
 const db = new Databases(appwrite);
@@ -41,7 +41,7 @@ app.get('/:id(*)', (req,res) => {
             res.sendFile(`${__dirname}/public/create-clip.html`);
     }).catch((e) => {
         console.log(e);
-        res.status(500).send('<p>An error occured. The page could not be loaded. ' + databaseID + ' </p>');
+        res.status(500).send('<p>An error occured. The page could not be loaded. ' + process.env.APPWRITE_ENDPOINT + ' </p>');
     });
 });
 
