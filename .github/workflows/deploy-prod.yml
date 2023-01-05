@@ -19,6 +19,15 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
         SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
+    - name: Create .env
+      shell: bash
+      run: |
+        touch .env
+        echo APPWRITE_ENDPOINT=${{secrets.APPWRITE_ENDPOINT}} >> .env
+        echo APPWRITE_API_KEY=${{secrets.APPWRITE_API_KEY}} >> .env
+        echo PILCC_PROJECT_ID=${{secrets.PILCC_PROJECT_ID}} >> .env
+        echo CLIP_DATABASE_ID=${{secrets.CLIP_DATABASE_ID}} >> .env
+        echo CLIP_COLLECTION_ID=${{secrets.CLIP_COLLECTION_ID}} >> .env
     - name: Install PM2
       run: npm install -g pm2
     - name: Deploy
