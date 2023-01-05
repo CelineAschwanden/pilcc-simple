@@ -19,6 +19,10 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
         SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
+    - name: Install PM2
+      run: npm install -g pm2
+    - name: Deploy
+      run: pm2 deploy ecosystem.config.js production
     - name: Create .env
       shell: bash
       run: |
@@ -28,7 +32,4 @@ jobs:
         echo PILCC_PROJECT_ID=${{secrets.PILCC_PROJECT_ID}} >> .env
         echo CLIP_DATABASE_ID=${{secrets.CLIP_DATABASE_ID}} >> .env
         echo CLIP_COLLECTION_ID=${{secrets.CLIP_COLLECTION_ID}} >> .env
-    - name: Install PM2
-      run: npm install -g pm2
-    - name: Deploy
-      run: pm2 deploy ecosystem.config.js production
+        scp -o StrictHostKeyChecking=no .env ${{SSH_USER}}@${{SSH_HOST}}:/var/www/Pilcc/source
