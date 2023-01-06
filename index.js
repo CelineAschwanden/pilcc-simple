@@ -9,25 +9,28 @@ const port = process.env.PORT || 3000;
 const databaseID = process.env.CLIP_DATABASE_ID;
 const clipCollectionID = process.env.CLIP_COLLECTION_ID;
 
-//Create Appwrite client and get database service
+//Create Appwrite client
 const appwrite = new Client()
     .setEndpoint(process.env.APPWRITE_ENDPOINT)
     .setProject(process.env.PILCC_PROJECT_ID)
     .setKey(process.env.APPWRITE_API_KEY);
 const db = new Databases(appwrite);
 
-//Express settings
+//Settings
 app.set('view engine', 'ejs');
+//Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/favicon.ico', express.static(path.join(__dirname, 'public/assets/favicon.ico')));
 app.use(cors());
 app.use(express.json({limit: '5mb'}));
 app.use(express.urlencoded({ extended: false }))
 
+//Home page
 app.get('/', (req,res) => {    
     res.sendFile(`${__dirname}/public/index.html`);
 });
 
+//Get clip
 app.get('/:id(*)', (req,res) => {
     const id = req.params.id;
     db.listDocuments(databaseID, clipCollectionID, [Query.equal('ID', id)]).then((clips) => {
@@ -45,13 +48,14 @@ app.get('/:id(*)', (req,res) => {
     });
 });
 
+//Create clip
 app.post('/:id(*)', (req,res) => {
     const id = req.params.id;
     const content = req.body.content;
     const lifetime = req.body.lifetime;
     
     db.createDocument(databaseID, clipCollectionID, ID.unique(), {ID: id, content: content, lifetime: lifetime})
-    .then(result => {
+    .then(() => {
         res.send();
     }).catch(error => {
         if (error.type == 'document_invalid_structure')
