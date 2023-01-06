@@ -23,13 +23,3 @@ jobs:
       run: npm install -g pm2
     - name: Deploy
       run: pm2 deploy ecosystem.config.js production
-    - name: Create .env
-      shell: bash
-      run: |
-        touch .env
-        echo APPWRITE_ENDPOINT=${{secrets.APPWRITE_ENDPOINT}} >> .env
-        echo APPWRITE_API_KEY=${{secrets.APPWRITE_API_KEY}} >> .env
-        echo PILCC_PROJECT_ID=${{secrets.PILCC_PROJECT_ID}} >> .env
-        echo CLIP_DATABASE_ID=${{secrets.CLIP_DATABASE_ID}} >> .env
-        echo CLIP_COLLECTION_ID=${{secrets.CLIP_COLLECTION_ID}} >> .env
-        scp -P 33621 -o StrictHostKeyChecking=no .env ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}}:/var/www/Pilcc/source
