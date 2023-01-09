@@ -11,8 +11,7 @@ Node.js functions to be run by an Appwrite Backend Service<br>
 - delete-expired-clips<br><br>
 
 Deploy to Appwrite:<br>
-- `npm install -g appwrite-cli`
-- `appwrite login`
+- `appwrite init function`
 - `appwrite deploy function` <br><br>
 
 ## Usage
@@ -27,6 +26,9 @@ CLIP_DATABASE_ID=""
 CLIP_COLLECTION_ID=""
 ```
 - Update deploy values in `ecosystem.config.js`
+- `npm install -g appwrite-cli`
+- `appwrite login`
+- `appwrite init project`
 - Open two terminals and run `npm run style` and `npm run test`
 
 ## Deployment with PM2
