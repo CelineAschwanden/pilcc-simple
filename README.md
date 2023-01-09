@@ -3,7 +3,7 @@
 <b>A simple online-clipboard using Appwrite as database.</b><br><br>
 
 Built with Node.js Express and simple pages styled with Tailwind CSS.<br>
-Currently uses ejs to render one of the pages, might get replaced with next.js <br><br>
+Currently uses ejs to render the `get-clip` page. <br><br>
 
 ## Appwrite Functions
 
@@ -14,6 +14,20 @@ Deploy to Appwrite:<br>
 - `npm install -g appwrite-cli`
 - `appwrite login`
 - `appwrite deploy function` <br><br>
+
+## Usage
+
+- `npm install`
+- In the root folder create a `.env` file with following content:
+```
+APPWRITE_ENDPOINT=""
+APPWRITE_API_KEY=""
+PROJECT_ID=""
+CLIP_DATABASE_ID=""
+CLIP_COLLECTION_ID=""
+```
+- Update deploy values in `ecosystem.config.js`
+- Open two terminals and run `npm run style` and `npm run test`
 
 ## Deployment with PM2
 
