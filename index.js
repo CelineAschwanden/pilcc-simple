@@ -12,7 +12,7 @@ const clipCollectionID = process.env.CLIP_COLLECTION_ID;
 //Create Appwrite client
 const appwrite = new Client()
     .setEndpoint(process.env.APPWRITE_ENDPOINT)
-    .setProject(process.env.PILCC_PROJECT_ID)
+    .setProject(process.env.PROJECT_ID)
     .setKey(process.env.APPWRITE_API_KEY);
 const db = new Databases(appwrite);
 
