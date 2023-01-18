@@ -2,7 +2,7 @@
 
 <b>A simple online-clipboard using Appwrite as database.</b><br><br>
 
-Built with Node.js Express and simple pages styled with Tailwind CSS.<br>
+Built with Node.js Express and pages styled with Tailwind CSS.<br>
 Currently uses ejs to render the `get-clip` page. <br><br>
 
 ## Appwrite Functions
@@ -14,7 +14,7 @@ Deploy to Appwrite:<br>
 - `appwrite init function`
 - `appwrite deploy function` <br><br>
 
-## Usage
+## Development
 
 - `npm install`
 - In the root folder create a `.env` file with following content:
