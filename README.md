@@ -2,8 +2,9 @@
 
 <b>A simple online-clipboard using Appwrite as database.</b><br><br>
 
-Built with Node.js Express and pages styled with Tailwind CSS.<br>
-Currently uses ejs to render the `get-clip` page. <br><br>
+Built with Node.js Express and pages styled with TailwindCSS.<br>
+Utilizes the `qrcodejs` library to display a QR code after clip creation.<br>
+Currently uses ejs to render the `get-clip` page.<br><br>
 
 ## Appwrite Functions
 
@@ -17,13 +18,13 @@ Deploy to Appwrite:<br>
 ## Development
 
 - `npm install`
-- In the root folder create a `.env` file with following content:
+- In the root folder create a `.env` file with the following variables with your values:
 ```
-APPWRITE_ENDPOINT=""
-APPWRITE_API_KEY=""
-PROJECT_ID=""
-CLIP_DATABASE_ID=""
-CLIP_COLLECTION_ID=""
+APPWRITE_ENDPOINT="..."
+APPWRITE_API_KEY="..."
+PROJECT_ID="..."
+CLIP_DATABASE_ID="..."
+CLIP_COLLECTION_ID="..."
 ```
 - Update deploy values in `ecosystem.config.js`
 - `npm install -g appwrite-cli`
