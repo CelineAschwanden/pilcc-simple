@@ -16,7 +16,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'git@github.com:CelineAschwanden/pilcc.git',
       path : '/var/www/Pilcc',
-      'post-deploy' : 'npm install && sudo pm2 startOrRestart ecosystem.config.js --env production'
+      'post-deploy' : 'sudo npm install && sudo pm2 startOrRestart ecosystem.config.js --env production'
     }
   }
 };
