@@ -10,7 +10,7 @@ module.exports = {
   deploy : {
     production : {
       key  : './github_action_key',
-      user : 'root',
+      user : 'cili',
       host : '178.128.245.25',
       port : '33621',
       ref  : 'origin/master',
