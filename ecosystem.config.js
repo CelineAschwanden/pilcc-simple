@@ -11,8 +11,7 @@ module.exports = {
     production : {
       key  : './github_action_key',
       user : 'cili',
-      host : '178.128.245.25',
-      port : '33621',
+      host : '174.138.103.190',
       ref  : 'origin/master',
       repo : 'git@github.com:CelineAschwanden/pilcc.git',
       path : '/var/www/Pilcc',
