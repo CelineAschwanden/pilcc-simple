@@ -1,10 +1,10 @@
 # pilcc
 
-<b>A simple online-clipboard using Appwrite as database.</b><br><br>
+<b>An online-clipboard using Appwrite as database.</b><br><br>
 
 Built with Node.js Express and pages styled with TailwindCSS.<br>
 Utilizes the `qrcodejs` library to display a QR code after clip creation.<br>
-Currently uses ejs to render the `get-clip` page.<br><br>
+EJS is used to render the `get-clip` page.<br><br>
 
 ## Appwrite Functions
 
