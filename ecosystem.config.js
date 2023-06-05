@@ -13,7 +13,7 @@ module.exports = {
       user : 'cili',
       host : '174.138.103.190',
       ref  : 'origin/master',
-      repo : 'git@github.com:CelineAschwanden/pilcc.git',
+      repo : 'git@github.com:CelineAschwanden/pilcc-simple.git',
       path : '/var/www/Pilcc',
       'post-deploy' : 'npm install && pm2 startOrRestart ecosystem.config.js --env production'
     }
