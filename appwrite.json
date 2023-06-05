@@ -1,0 +1,21 @@
+{
+    "projectId": "642d34cc9f234df3ccde",
+    "projectName": "Pilcc",
+    "functions": [
+        {
+            "$id": "63ea48f213546a5d5841",
+            "name": "delete-expired-clips",
+            "runtime": "node-16.0",
+            "path": "functions/delete-expired-clips",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [],
+            "events": [],
+            "schedule": "*/15 * * * *",
+            "timeout": 15
+        }
+    ]
+}

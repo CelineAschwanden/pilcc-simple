@@ -6,15 +6,18 @@
   <link href="style.css" rel="stylesheet">
   <title>Pilcc</title>
 </head>
-<body class="text-white bg-slate-900 font-mono p-6">
-  <div class="flex flex-col items-center" id="home-title">
-    <h1 class="text-2xl mt-12">Welcome to Pilcc</h1>
-    <p class="text-xs smol-text">It's Clip but backwards</p>
-  </div>
-  <div class="flex flex-col items-center mt-12" id="home-content">
-    <p class="mb-2">Add any route to <span id="current-host"></span> to create a clip.</p>
-    <p>Random example: <a id="url-example" class="underline"></a></p>
-  </div>
+<body class="text-white bg-slate-900 font-mono p-6 h-screen">
+  <main class="flex h-full flex-col items-center justify-center -mt-12">
+    <div class="flex flex-col items-center" id="home-title">
+      <img src="assets/favicon.ico" width="50" height="50" alt="" />
+      <h1 class="text-2xl mt-6">Welcome to Pilcc</h1>
+    </div>
+    
+    <div class="flex flex-col items-center text-center mt-12" id="home-content">
+      <p class="mb-2">Add any route to <span id="current-host"></span> to create a clip.</p>
+        <p>Random example: <a id="url-example" class="underline"></a></p>
+    </div>
+  </main>
 </body>
 <script src="index.js"></script>
 </html>

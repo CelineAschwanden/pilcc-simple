@@ -31,9 +31,9 @@ app.get('/', (req,res) => {
 });
 
 //Get clip
-app.get('/:id(*)', (req,res) => {
-    const id = req.params.id;
-    db.listDocuments(databaseID, clipCollectionID, [Query.equal('ID', id)]).then((clips) => {
+app.get('/:path(*)', (req,res) => {
+    const path = req.params.path;
+    db.listDocuments(databaseID, clipCollectionID, [Query.equal('path', path)]).then((clips) => {
         const clip = clips.documents[0];
         if (clip && clip.total != 0) {
             res.render('get-clip', { clipContent: clip.content });
@@ -49,19 +49,19 @@ app.get('/:id(*)', (req,res) => {
 });
 
 //Create clip
-app.post('/:id(*)', (req,res) => {
-    const id = req.params.id;
+app.post('/:path(*)', (req,res) => {
+    const path = req.params.path;
     const content = req.body.content;
     const lifetime = req.body.lifetime;
     
-    db.createDocument(databaseID, clipCollectionID, ID.unique(), {ID: id, content: content, lifetime: lifetime})
+    db.createDocument(databaseID, clipCollectionID, ID.unique(), {path: path, content: content, lifetime: lifetime})
     .then(() => {
         res.send();
     }).catch(error => {
         if (error.type == 'document_invalid_structure')
             res.status(400).send('Invalid data submitted');
         else if (error.type == 'document_already_exists')
-            res.status(409).send('A clip with this ID already exists');
+            res.status(409).send('A clip already exists on this path!');
         else
             res.status(500).send('Failed to create clip');
     });
