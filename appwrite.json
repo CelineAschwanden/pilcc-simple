@@ -14,7 +14,7 @@
             ],
             "execute": [],
             "events": [],
-            "schedule": "*/15 * * * *",
+            "schedule": "* * * * *",
             "timeout": 15
         }
     ]
