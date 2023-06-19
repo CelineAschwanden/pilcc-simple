@@ -1,18 +1,18 @@
-# pilcc
+# pilcc-simple
 
-<b>An online-clipboard using Appwrite as database.</b><br><br>
+<b>Old and more lightweight version of [Pilcc](https://pilc.cc).</b><br><br>
 
-Built with Node.js Express and pages styled with TailwindCSS.<br>
-Utilizes the `qrcodejs` library to display a QR code after clip creation.<br>
-EJS is used to render the `get-clip` page.<br><br>
+Built with ExpressJS, EJS and TailwindCSS.<br>
+Utilizes the `qrcodejs` library to display a QR code after clip creation.<br><br>
 
 ## Appwrite Functions
 
-Node.js functions to be run by an Appwrite Backend Service<br>
-- delete-expired-clips<br><br>
+- delete-expired-clips<br>
 
 Deploy to Appwrite:<br>
-- `appwrite init function`
+- `npm install -g appwrite-cli`
+- `appwrite login`
+- edit the appwrite.json
 - `appwrite deploy function` <br><br>
 
 ## Development
@@ -27,17 +27,13 @@ CLIP_DATABASE_ID="..."
 CLIP_COLLECTION_ID="..."
 ```
 - Update deploy values in `ecosystem.config.js`
-- `npm install -g appwrite-cli`
-- `appwrite login`
-- `appwrite init project`
 - Open two terminals and run `npm run style` and `npm run test`
 
 ## Deployment with PM2
 
-[Server setup guide here](https://notes.ciliscu.com/40683/setup-easy-node-js-app-deployment-with-pm2-on-a-caddy-server-ubuntu)
-
-If not using GitHub Actions:<br>
-- Change the key path in `ecosystem.config.js` to point to your private SSH key for connecting to the server.
+[Server setup guide](https://notes.ciliscu.com/40683/setup-easy-node-js-app-deployment-with-pm2-on-a-caddy-server-ubuntu)
+<br>
+- Edit `ecosystem.config.js`
 - Install pm2 locally<br>
 `npm install -g pm2`
 - run<br>
