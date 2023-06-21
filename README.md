@@ -1,6 +1,7 @@
 # pilcc-simple
 
-<b>Old and more lightweight version of [Pilcc](https://pilc.cc).</b><br><br>
+<b>Old and more lightweight version of [Pilcc](https://pilc.cc).</b><br>
+The new repo is for now private.<br><br>
 
 Built with ExpressJS, EJS and TailwindCSS.<br>
 Utilizes the `qrcodejs` library to display a QR code after clip creation.<br><br>
